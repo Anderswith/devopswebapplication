@@ -31,16 +31,11 @@
 C:\Users\Anders\RiderProjects\DevOpsWebApplication\DevOpsWebApplication\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\Anders\RiderProjects\DevOpsWebApplication\DevOpsWebApplication\bin\Debug\net8.0\appsettings.json
 C:\Users\Anders\RiderProjects\DevOpsWebApplication\DevOpsWebApplication\bin\Debug\net8.0\DevOpsWebApplication.staticwebassets.runtime.json
-C:\Users\Anders\RiderProjects\DevOpsWebApplication\DevOpsWebApplication\bin\Debug\net8.0\DevOpsWebApplication.exe
 C:\Users\Anders\RiderProjects\DevOpsWebApplication\DevOpsWebApplication\bin\Debug\net8.0\DevOpsWebApplication.deps.json
 C:\Users\Anders\RiderProjects\DevOpsWebApplication\DevOpsWebApplication\bin\Debug\net8.0\DevOpsWebApplication.runtimeconfig.json
-C:\Users\Anders\RiderProjects\DevOpsWebApplication\DevOpsWebApplication\bin\Debug\net8.0\DevOpsWebApplication.dll
-C:\Users\Anders\RiderProjects\DevOpsWebApplication\DevOpsWebApplication\bin\Debug\net8.0\DevOpsWebApplication.pdb
 C:\Users\Anders\RiderProjects\DevOpsWebApplication\DevOpsWebApplication\obj\Debug\net8.0\DevOpsWebApplication.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Anders\RiderProjects\DevOpsWebApplication\DevOpsWebApplication\obj\Debug\net8.0\DevOpsWebApplication.AssemblyInfoInputs.cache
 C:\Users\Anders\RiderProjects\DevOpsWebApplication\DevOpsWebApplication\obj\Debug\net8.0\DevOpsWebApplication.AssemblyInfo.cs
-C:\Users\Anders\RiderProjects\DevOpsWebApplication\DevOpsWebApplication\obj\Debug\net8.0\DevOpsWebApplication.csproj.CoreCompileInputs.cache
-C:\Users\Anders\RiderProjects\DevOpsWebApplication\DevOpsWebApplication\obj\Debug\net8.0\DevOpsWebApplication.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Anders\RiderProjects\DevOpsWebApplication\DevOpsWebApplication\obj\Debug\net8.0\DevOpsWebApplication.RazorAssemblyInfo.cache
 C:\Users\Anders\RiderProjects\DevOpsWebApplication\DevOpsWebApplication\obj\Debug\net8.0\DevOpsWebApplication.RazorAssemblyInfo.cs
 C:\Users\Anders\RiderProjects\DevOpsWebApplication\DevOpsWebApplication\obj\Debug\net8.0\staticwebassets.build.json
@@ -53,8 +48,4 @@ C:\Users\Anders\RiderProjects\DevOpsWebApplication\DevOpsWebApplication\obj\Debu
 C:\Users\Anders\RiderProjects\DevOpsWebApplication\DevOpsWebApplication\obj\Debug\net8.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\Anders\RiderProjects\DevOpsWebApplication\DevOpsWebApplication\obj\Debug\net8.0\scopedcss\bundle\DevOpsWebApplication.styles.css
 C:\Users\Anders\RiderProjects\DevOpsWebApplication\DevOpsWebApplication\obj\Debug\net8.0\scopedcss\projectbundle\DevOpsWebApplication.bundle.scp.css
-C:\Users\Anders\RiderProjects\DevOpsWebApplication\DevOpsWebApplication\obj\Debug\net8.0\DevOpsWebApplication.dll
-C:\Users\Anders\RiderProjects\DevOpsWebApplication\DevOpsWebApplication\obj\Debug\net8.0\refint\DevOpsWebApplication.dll
-C:\Users\Anders\RiderProjects\DevOpsWebApplication\DevOpsWebApplication\obj\Debug\net8.0\DevOpsWebApplication.pdb
 C:\Users\Anders\RiderProjects\DevOpsWebApplication\DevOpsWebApplication\obj\Debug\net8.0\DevOpsWebApplication.genruntimeconfig.cache
-C:\Users\Anders\RiderProjects\DevOpsWebApplication\DevOpsWebApplication\obj\Debug\net8.0\ref\DevOpsWebApplication.dll
