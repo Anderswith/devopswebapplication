@@ -39,13 +39,11 @@ jobs:
       - name: Build and Push Docker image
         run: |
           docker build \
-            -t ghcr.io/${{github.repository}}:staging \
-            -t ghcr.io/${{github.repository}}:${{steps.semver-app.outputs.version}} \
-            -f Dockerfile\
+            -t ghcr.io/${{ github.repository }}:staging \
+            -t ghcr.io/${{ github.repository }}:${{ steps.semver-app.outputs.version }} \
+            -f DevOpsWebApplication/Dockerfile \
             .
-          docker images
-          docker push ghcr.io/${{github.repository}}:staging
-          docker push ghcr.io/${{github.repository}}:${{steps.semver-app.outputs.version}}
+          docker push ghcr.io/${{ github.repository }} --all-tags
 
       - name: Create release notes
         uses: ncipollo/release-action@v1
