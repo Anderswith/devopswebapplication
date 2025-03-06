@@ -13,13 +13,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Fetch all history for accurate results of code analysis
-          
+          fetch-depth: 0  # Fetch all history for accurate results of code analysis
+
       - name: List files in the repository
         run: |
           ls -R
         
-          - name: Application Version
+      - name: Application Version
         id: semver-app
         uses: paulhatch/semantic-version@v5.4.0
         with:
