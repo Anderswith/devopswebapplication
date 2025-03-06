@@ -8,12 +8,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="docker\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <Content Include="..\.dockerignore">
-        <Link>.dockerignore</Link>
+        <Link>docker\.dockerignore</Link>
       </Content>
       <Content Include=".github\workflows\devops.yml" />
     </ItemGroup>
