@@ -38,7 +38,7 @@ jobs:
             -t ghcr.io/${{github.repository}}:staging \
             -t ghcr.io/${{github.repository}}:${{steps.semver-app.outputs.version}} \
             -f docker/Dockerfile\
-            .
+            ./DevOpsWebApplication
           docker images
           docker push ghcr.io/${{github.repository}}:staging
           docker push ghcr.io/${{github.repository}}:${{steps.semver-app.outputs.version}}
