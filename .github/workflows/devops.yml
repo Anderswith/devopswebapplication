@@ -15,10 +15,6 @@ jobs:
         with:
           fetch-depth: 0 # Fetch all history for accurate results of code analysis
           
-      - name: print hello world
-        run: |
-          echo "hello world"
-          
       - name: Application Version
         id: semver-app
         uses: paulhatch/semantic-version@v5.4.0
@@ -60,9 +56,6 @@ jobs:
           username: ${{github.actor}}
           password: ${{secrets.GITHUB_TOKEN}}
 
-      - name: Check version output
-        run:
-          echo "Version: ${{steps.semver-app.outputs.version}}"
 
       - name: Build and Push Docker image
         run: |
