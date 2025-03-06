@@ -15,9 +15,7 @@ jobs:
         with:
           fetch-depth: 0  # Fetch all history for accurate results of code analysis
 
-      - name: List files in the repository
-        run: |
-          ls -R
+
         
       - name: Application Version
         id: semver-app
