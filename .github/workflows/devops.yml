@@ -32,7 +32,6 @@ jobs:
           username: ${{github.actor}}
           password: ${{secrets.GITHUB_TOKEN}}
 
-
       - name: Build and Push Docker image
         run: |
           docker build \
