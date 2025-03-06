@@ -3,7 +3,7 @@ name: DevOps Pipeline
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   integration:
@@ -20,7 +20,7 @@ jobs:
         uses: paulhatch/semantic-version@v5.4.0
         with:
           bump_each_commit: true
-          bump_each_commit_patch_pattern: "^(fix|bugfix):"
+          
 
       - name: Display Version
         run: echo "Generated version is ${{ steps.semver-app.outputs.version}}"
