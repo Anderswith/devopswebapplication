@@ -1,0 +1,84 @@
+name: DevOps Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  integration:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all history for accurate results of code analysis
+          
+      - name: print hello world
+        run: |
+          echo "hello world"
+          
+      - name: Application Version
+        id: semver-app
+        uses: paulhatch/semantic-version@5.4.0
+        with:
+          bump_each_commit: true
+
+      - name: Display Version
+        run: echo "Generated version is ${{ steps.semver-app.outputs.version}}"
+
+      - name: Install required tools
+        run: |
+          dotnet tool install --global dotnet-reportgenerator-globaltool
+          dotnet tool install --global dotnet-stryker
+      - name: Run unit tests
+        run: |
+          dotnet test --collect:"XPlat Code Coverage" --results-directory coverage
+
+      - name: Generate report
+        run: |
+          reportgenerator -reports:"coverage/**/coverage.cobertura.xml" -targetdir:coverage-report -reporttypes:Html
+
+      - name: Run Mutation Tests
+        run: |
+          dotnet stryker --threshold-high 80
+
+      - name: Collect Coverage Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage/**/coverage.cobertura.xml
+
+      - name: Collect Stryker Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stryker-report
+          path: "**/StrykerOutput/**"
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{github.actor}}
+          password: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Build and Push Docker image
+        run: |
+          docker build \
+            -t ghcr.io/${{github.repository}}:staging \
+            -t ghcr.io/${{github.repository}}:${{steps.semver-app.outputs.version}} \
+            -f DevOpsWebApplication/Dockerfile \
+            .
+          docker push ghcr.io/${{github.repository}} --all-tags
+
+      - name: Create release notes
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{steps.semver-app.outputs.version}}
+          generateReleaseNotes: true
+          body: |
+            this release includes the following container image:
+            https://ghcr.io/${{github.repository}}:${{steps.semver-app.outputs.version}}
