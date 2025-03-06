@@ -44,10 +44,7 @@ jobs:
             -t ghcr.io/${{github.repository}}:staging \
             -t ghcr.io/${{github.repository}}:${{steps.semver-app.outputs.version}} \
             -f DevOpsWebApplication/Dockerfile \
-            .
-          docker images
-          docker push ghcr.io/${{github.repository}}:staging
-          docker push ghcr.io/${{github.repository}}:${{steps.semver-app.outputs.version}}
+            DevOpsWebApplication
 
       - name: Create release notes
         uses: ncipollo/release-action@v1
