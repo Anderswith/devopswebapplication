@@ -38,7 +38,7 @@ jobs:
 
       - name: Generate report
         run: |
-          reportgenerator -reports:"coverage/**/coverage.cobertura.xml" -targetdir:coverage-report -reporttypes:Html
+          reportgenerator -reports:"TestResults/**/coverage.cobertura.xml" -targetdir:coverage-report -reporttypes:Html
 
       - name: Run Mutation Tests
         run: |
