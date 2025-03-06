@@ -14,8 +14,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Fetch all history for accurate results of code analysis
-
-
         
       - name: Application Version
         id: semver-app
