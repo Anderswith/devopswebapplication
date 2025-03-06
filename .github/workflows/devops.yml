@@ -32,13 +32,7 @@ jobs:
         run: |
           dotnet tool install --global dotnet-reportgenerator-globaltool
           dotnet tool install --global dotnet-stryker
-      - name: Run unit tests
-        run: |
-          dotnet test --collect:"XPlat Code Coverage" --results-directory coverage
 
-      - name: Generate report
-        run: |
-          reportgenerator -reports:"TestResults/**/coverage.cobertura.xml" -targetdir:coverage-report -reporttypes:Html
 
       - name: Run Mutation Tests
         run: |
@@ -65,6 +59,10 @@ jobs:
           username: ${{github.actor}}
           password: ${{secrets.GITHUB_TOKEN}}
 
+      - name: Check version output
+        run:
+          echo "Version: ${{steps.semver-app.outputs.version}}"
+
       - name: Build and Push Docker image
         run: |
           docker build \
@@ -72,7 +70,9 @@ jobs:
             -t ghcr.io/${{github.repository}}:${{steps.semver-app.outputs.version}} \
             -f DevOpsWebApplication/Dockerfile \
             .
-          docker push ghcr.io/${{github.repository}} --all-tags
+          docker images
+          docker push ghcr.io/${{github.repository}}:staging
+          docker push ghcr.io/${{github.repository}}:${{steps.semver-app.outputs.version}}
 
       - name: Create release notes
         uses: ncipollo/release-action@v1
@@ -80,5 +80,6 @@ jobs:
           tag: ${{steps.semver-app.outputs.version}}
           generateReleaseNotes: true
           body: |
-            this release includes the following container image:
+            This release includes the following container image:
             https://ghcr.io/${{github.repository}}:${{steps.semver-app.outputs.version}}
+      
