@@ -15,7 +15,11 @@ jobs:
         with:
           fetch-depth: 0 # Fetch all history for accurate results of code analysis
           
-      - name: Application Version
+      - name: List files in the repository
+        run: |
+          ls -R
+        
+          - name: Application Version
         id: semver-app
         uses: paulhatch/semantic-version@v5.4.0
         with:
@@ -38,7 +42,7 @@ jobs:
             -t ghcr.io/${{github.repository}}:staging \
             -t ghcr.io/${{github.repository}}:${{steps.semver-app.outputs.version}} \
             -f docker/Dockerfile\
-            ./DevOpsWebApplication
+            .
           docker images
           docker push ghcr.io/${{github.repository}}:staging
           docker push ghcr.io/${{github.repository}}:${{steps.semver-app.outputs.version}}
