@@ -25,11 +25,6 @@ jobs:
       - name: Display Version
         run: echo "Generated version is ${{ steps.semver-app.outputs.version}}"
 
-      - name: Install required tools
-        run: |
-          dotnet tool install --global dotnet-reportgenerator-globaltool
-          dotnet tool install --global dotnet-stryker
-
       - name: Log in to GHCR
         uses: docker/login-action@v2
         with:
